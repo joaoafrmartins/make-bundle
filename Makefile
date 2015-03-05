@@ -16,6 +16,8 @@ LINK = cd `dirname {}` && $(npm_package_config_task_link)
 
 TEST = cd `dirname {}` && $(npm_package_config_task_test)
 
+CREATE = cd `dirname {}` && $(npm_package_config_task_create)
+
 PUBLISH = cd `dirname {}` && $(npm_package_config_task_publish)
 
 # TASKS
@@ -32,6 +34,9 @@ link:
 test:
 	$(FIND) -exec sh -c '$(TEST)' ';'
 
+create:
+	$(FIND) -exec sh -c '$(CREATE)' ';'
+
 publish:
 	$(FIND) -exec sh -c '$(PUBLISH)' ';'
 
@@ -41,4 +46,4 @@ clean:
 
 # TASKLIST
 
-.PHONY: install uninstall link test clean publish
+.PHONY: install uninstall link test clean create publish

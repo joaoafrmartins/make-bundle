@@ -25,45 +25,40 @@ if not test '-f', file
     "name": "",
     "private": true,
     "version": "0.0.0",
-    "scripts": {}
+    "scripts": {
+      "make-install": "make install",
+      "make-uninstall": "make uninstall",
+      "make-link": "make link",
+      "make-test": "make test",
+      "make-clean": "make clean",
+      "make-create": "make create",
+      "make-publish": "make publish",
+    },
+    "config": {
+      "find_root": ".",
+      "find_mindepth": "2",
+      "find_maxdepth": "2",
+      "find_type": "f",
+      "find_name": "package.json",
+      "task_install": "spaghetty install -li",
+      "task_uninstall": "spaghetty install -u",
+      "task_link": "spaghetty install -li",
+      "task_test": "echo 'test'; pwd;",
+      "task_create": "spaghetty github --delete && spaghetty github --create --commit",
+      "task_publish": "spaghetty github --commit"
+    },
+    "tasks": {
+      "clear": "clear",
+      "install": "npm run make-install",
+      "uninstall": "npm run make-uninstall",
+      "link": "npm run make-link",
+      "test": "npm run make-test",
+      "clean": "npm run make-clean",
+      "create": "npm run make-create",
+      "publish": "npm run make-publish"
+    }
   }
   """.to file
-
-pkg = JSON.parse cat file
-
-pkg.config ?=
-
-  find_root: "."
-
-  find_mindepth: "2"
-
-  find_maxdepth: "2"
-
-  find_type: "f"
-
-  find_name: "package.json"
-
-  task_install: "echo 'install'; pwd;"
-
-  task_uninstall: "echo 'uninstall'; pwd;"
-
-  task_link: "echo 'link'; pwd;"
-
-  task_test: "echo 'test'; pwd;"
-
-  task_custom: "echo 'custom'; pwd;"
-
-pkg.scripts ?= {}
-
-pkg.tasks ?=
-
-  "clear": "clear"
-
-tasks.map (task) ->
-
-  pkg.scripts["make-#{task}"] ?= "make #{task}"
-
-  pkg.tasks["#{task}"] ?= "npm run make-#{task}"
 
 JSON.stringify(pkg, null, 2).to file
 

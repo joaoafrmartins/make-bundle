@@ -1,7 +1,6 @@
 {
   "name": "make-bundle",
   "version": "0.0.0",
-  "main": "lib/main",
   "scripts": {
     "postinstall": "./postinstall.coffee"
   },
