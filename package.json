@@ -1,0 +1,23 @@
+{
+  "name": "make-bundle",
+  "version": "0.0.0",
+  "main": "lib/main",
+  "scripts": {
+    "postinstall": "./postinstall.coffee"
+  },
+  "description": "Make Bundle",
+  "keywords": [
+    "make",
+    "bundle"
+  ],
+  "dependencies": {},
+  "devDependencies": {},
+  "homepage": "https://github.com/joaoafrmartins/make-bundle",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/joaoafrmartins/make-bundle.git"
+  },
+  "bugs": {
+    "url": "https://github.com/joaoafrmartins/make-bundle/issues"
+  }
+}
